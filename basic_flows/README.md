@@ -77,7 +77,7 @@ python pipeFlow.py
 | **41×41** | ![Cavity 41x41](results/cavity_flow_41x41.png) |
 | **61×61** | ![Cavity 61x61](results/cavity_flow_61x61.png) |
 
-#### 🔎 **Observations:**
+#### **Observations:**
 - The **numerical simulation** captures the vortex formation inside the cavity.
 - The **GNN predictions** follow the numerical results well, but some smoothing is observed.
 - **Prediction errors** are more concentrated at the top corners where shear layers develop.
