@@ -47,6 +47,9 @@ source gnn-cfd-env/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+---
 
 ### 2️⃣ **Run the simulations**
 Run each script individually to perform the simulation, GNN training, and visualization.
@@ -54,6 +57,7 @@ Run each script individually to perform the simulation, GNN training, and visual
 ```bash
 python cavityFlow.py
 python pipeFlow.py
+```
 
 ---
 
