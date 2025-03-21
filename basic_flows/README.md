@@ -66,11 +66,16 @@ python pipeFlow.py
 ### **Cavity Flow Results**
 #### Velocity Magnitude Predictions
 
+## Results and Discussion
+
+### **Cavity Flow Results**
+#### Velocity Magnitude Predictions
+
 | Grid Size | Numerical vs GNN vs Error |
 |-----------|---------------------------|
-| **21×21** | ![Cavity 21x21](cavity_flow_21x21.png) |
-| **41×41** | ![Cavity 41x41](cavity_flow_41x41.png) |
-| **61×61** | ![Cavity 61x61](cavity_flow_61x61.png) |
+| **21×21** | ![Cavity 21x21](results/cavity_flow_21x21.png) |
+| **41×41** | ![Cavity 41x41](results/cavity_flow_41x41.png) |
+| **61×61** | ![Cavity 61x61](results/cavity_flow_61x61.png) |
 
 #### 🔎 **Observations:**
 - The **numerical simulation** captures the vortex formation inside the cavity.
@@ -84,9 +89,10 @@ python pipeFlow.py
 
 | Grid Size | Numerical vs GNN vs Error |
 |-----------|---------------------------|
-| **10×5** | ![Pipe 10x5](pipe_flow_comparison_10x5.png) |
-| **20×10** | ![Pipe 20x10](pipe_flow_comparison_20x10.png) |
-| **30×15** | ![Pipe 30x15](pipe_flow_comparison_30x15.png) |
+| **10×5** | ![Pipe 10x5](results/pipe_flow_comparison_10x5.png) |
+| **20×10** | ![Pipe 20x10](results/pipe_flow_comparison_20x10.png) |
+| **30×15** | ![Pipe 30x15](results/pipe_flow_comparison_30x15.png) |
+
 
 #### **Observations:**
 - The **numerical solver** provides a smooth potential field with high-to-low gradients along the pipe.
