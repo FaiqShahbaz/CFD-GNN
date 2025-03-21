@@ -29,7 +29,7 @@ This folder contains two classic flow problems solved using traditional CFD solv
 ---
 
 
-## 🛠 How to Run
+## How to Run
 
 ### 1️⃣ **Set up the virtual environment**
 ```bash
