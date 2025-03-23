@@ -66,11 +66,6 @@ python pipeFlow.py
 ### **Cavity Flow Results**
 #### Velocity Magnitude Predictions
 
-## Results and Discussion
-
-### **Cavity Flow Results**
-#### Velocity Magnitude Predictions
-
 | Grid Size | Numerical vs GNN vs Error |
 |-----------|---------------------------|
 | **21×21** | ![Cavity 21x21](results/cavity_flow_21x21.png) |
