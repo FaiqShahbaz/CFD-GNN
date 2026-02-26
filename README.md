@@ -25,44 +25,18 @@ This repository explores graph-based surrogate modeling of partial differential 
 
 ## Overview
 
-Many CFD problems are governed by nonlinear PDEs of the form
+Computational Fluid Dynamics (CFD) problems are typically governed by nonlinear partial differential equations derived from conservation laws of mass and momentum. Classical numerical solvers approximate these equations using mesh-based discretization methods such as finite difference, finite volume, or finite element techniques.
 
-$$
-\mathcal{N}(u) = 0,
-$$
+This repository explores the use of **Graph Neural Networks (GNNs)** as surrogate models for CFD systems. Instead of operating on structured grids alone, simulation data is converted into graph representations:
 
-where $u$ denotes the state variables (e.g., velocity and pressure), and  
-$\mathcal{N}$ represents a nonlinear differential operator derived from conservation laws.
+- **Nodes** represent mesh points or cell centers  
+- **Edges** represent mesh connectivity  
+- **Node features** encode geometric and physical quantities  
+- **Edge features** encode spatial relationships  
 
-For example, the incompressible Navier–Stokes equations are written as
+A GNN is then trained to learn mappings from mesh geometry and boundary conditions to physical field quantities such as pressure and velocity.
 
-$$
-\frac{\partial \mathbf{u}}{\partial t}
-+ (\mathbf{u} \cdot \nabla)\mathbf{u}
-= -\nabla p
-+ \nu \nabla^2 \mathbf{u},
-$$
-
-$$
-\nabla \cdot \mathbf{u} = 0.
-$$
-
-Classical solvers approximate these equations using mesh-based discretization methods such as finite difference, finite volume, or finite element techniques.
-
-In this repository, simulation outputs are converted into graph representations:
-
-- **Nodes** → mesh points or cell centers  
-- **Edges** → mesh connectivity  
-- **Node features** → geometric and physical variables  
-- **Edge features** → spatial relationships  
-
-A GNN model $u_\theta$ is trained to approximate the numerical solution:
-
-$$
-u_\theta \approx u_{\text{CFD}}.
-$$
-
-The learning problem is formulated as supervised regression over mesh graphs.
+The objective is to combine the physical reliability of numerical solvers with the computational efficiency and flexibility of deep learning, enabling data-driven surrogate modeling of fluid systems. 
 
 ---
 
