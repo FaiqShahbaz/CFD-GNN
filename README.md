@@ -27,40 +27,40 @@ This repository investigates graph-based surrogate modeling of partial different
 
 Many CFD problems are governed by nonlinear PDEs of the form
 
-$begin:math:display$
-\\mathcal\{N\}\(u\) \= 0\,
-$end:math:display$
+$$
+\mathcal{N}(u) = 0,
+$$
 
-where $begin:math:text$ u $end:math:text$ denotes the state variables (e.g., velocity and pressure), and  
-$begin:math:text$ \\mathcal\{N\} $end:math:text$ represents a nonlinear differential operator derived from conservation laws.
+where $u$ denotes the state variables (e.g., velocity and pressure), and  
+$\mathcal{N}$ represents a nonlinear differential operator derived from conservation laws.
 
-For example, incompressible Navier–Stokes equations are written as
+For example, the incompressible Navier–Stokes equations are written as
 
-$begin:math:display$
-\\frac\{\\partial \\mathbf\{u\}\}\{\\partial t\}
-\+ \(\\mathbf\{u\} \\cdot \\nabla\)\\mathbf\{u\}
-\= \-\\nabla p
-\+ \\nu \\nabla\^2 \\mathbf\{u\}\,
-$end:math:display$
+$$
+\frac{\partial \mathbf{u}}{\partial t}
++ (\mathbf{u} \cdot \nabla)\mathbf{u}
+= -\nabla p
++ \nu \nabla^2 \mathbf{u},
+$$
 
-$begin:math:display$
-\\nabla \\cdot \\mathbf\{u\} \= 0\.
-$end:math:display$
+$$
+\nabla \cdot \mathbf{u} = 0.
+$$
 
-Classical solvers approximate these equations using mesh-based discretization (finite difference, finite volume, or finite element methods).
+Classical solvers approximate these equations using mesh-based discretization methods (finite difference, finite volume, or finite element techniques).
 
-In this repository, simulation outputs are converted into graph representations:
+In this repository, simulation outputs are transformed into graph representations:
 
 - **Nodes** → mesh points or cell centers  
 - **Edges** → mesh connectivity  
 - **Node features** → geometric and physical variables  
-- **Edge features** → relative spatial relationships  
+- **Edge features** → spatial relationships  
 
-A GNN model $begin:math:text$ u\_\\theta $end:math:text$ is then trained to approximate the numerical solution field:
+A GNN model $u_\theta$ is trained to approximate the numerical solution:
 
-$begin:math:display$
-u\_\\theta \\approx u\_\{\\text\{CFD\}\}\.
-$end:math:display$
+$$
+u_\theta \approx u_{\text{CFD}}.
+$$
 
 The learning problem is formulated as supervised regression over mesh graphs.
 
@@ -72,8 +72,20 @@ The learning problem is formulated as supervised regression over mesh graphs.
 CFD-GNN/
 │
 ├── projects/
-│   ├── basic_flows/            # Structured grid CFD + GNN
-│   └── airfoil-gnn-openfoam/   # OpenFOAM + unstructured mesh GNN
+│   ├── basic_flows/
+│   │   ├── cavityFlow.py
+│   │   ├── pipeFlow.py
+│   │   └── results/
+│   │
+│   └── airfoil-gnn-openfoam/
+│       ├── cfd/                  # OpenFOAM base case
+│       ├── cfd_scripts/          # Case generation & execution
+│       ├── gnn/                  # Graph construction & models
+│       │   ├── models/
+│       │   ├── train.py
+│       │   ├── evaluate.py
+│       │   └── ...
+│       └── results/              # Visualization outputs
 │
 ├── README.md
 └── LICENSE
@@ -81,12 +93,12 @@ CFD-GNN/
 
 Each project directory contains:
 
-- Source code
-- Data preprocessing scripts
-- Model architectures
-- Training and evaluation pipelines
-- Generated results and visualizations
-- Independent documentation
+- Source code  
+- Data preprocessing scripts  
+- Model architectures  
+- Training and evaluation pipelines  
+- Generated results and visualizations  
+- Independent documentation  
 
 ---
 
@@ -156,7 +168,7 @@ Across projects, the workflow follows:
    - Relative L2 error
    - Field visualizations
 
-The approach aligns with graph-based surrogate modeling in scientific machine learning.
+This approach aligns with graph-based surrogate modeling strategies in Scientific Machine Learning.
 
 ---
 
