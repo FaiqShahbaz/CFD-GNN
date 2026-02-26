@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    p
+    {
+        solver          GAMG;
+        tolerance       1e-06;
+        relTol          0.1;
+        smoother        GaussSeidel;
+    }
+
+    U
+    {
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nSweeps         2;
+        tolerance       1e-08;
+        relTol          0.1;
+    }
+
+    nuTilda
+    {
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nSweeps         2;
+        tolerance       1e-08;
+        relTol          0.1;
+    }
+
+    Phi     //Needed for potentialFoam
+    {
+        $p;	// Use p settings
+    }
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 1;		// 0 -> 1 It's a good idea to run at least one.
+
+    consistent yes;			// Added. Optional, but improves convergence in most cases.
+
+    residualControl
+    {
+        p               1e-7;
+        U               1e-7;
+        nuTilda         1e-7;
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p               1;		// 0.3 -> 1 under-relaxation not needed when consistent is enabled.
+    }
+    equations
+    {
+        U               0.7;		// 0.7 -> 0.9 not as much under-relaxation needed when consistent is enabled.
+        nuTilda         0.7;		// 0.7 -> 0.9 not as much under-relaxation needed when consistent is enabled.
+    }
+}
+
+potentialFlow       // For potentialFoam. Number of initialization steps.
+{
+    nNonOrthogonalCorrectors 10;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Environments
+venv/
+.env/
+.venv/
+conda/
+
+# Large ML artifacts
+**/checkpoints/
+**/training_output*/
+**/*.pt
+**/*.pth
+**/*.npz
+
+# Generated CFD data
+**/cases/
+**/vtu/
+**/VTK/
+**/postProcessing/
+**/processor*/
+**/*.vtu
+**/*.vtp
+**/*.vtk
+**/*.foam
