@@ -8,7 +8,7 @@
 
 A structured collection of **Graph Neural Network (GNN)** implementations for learning solutions of **Computational Fluid Dynamics (CFD)** systems.
 
-This repository investigates graph-based surrogate modeling of partial differential equations (PDEs), where high-fidelity numerical simulations are used to train neural networks defined on mesh connectivity graphs.
+This repository explores graph-based surrogate modeling of partial differential equations (PDEs), where numerical simulations are used to train neural networks defined over mesh connectivity graphs.
 
 ---
 
@@ -47,9 +47,9 @@ $$
 \nabla \cdot \mathbf{u} = 0.
 $$
 
-Classical solvers approximate these equations using mesh-based discretization methods (finite difference, finite volume, or finite element techniques).
+Classical solvers approximate these equations using mesh-based discretization methods such as finite difference, finite volume, or finite element techniques.
 
-In this repository, simulation outputs are transformed into graph representations:
+In this repository, simulation outputs are converted into graph representations:
 
 - **Nodes** → mesh points or cell centers  
 - **Edges** → mesh connectivity  
@@ -91,14 +91,7 @@ CFD-GNN/
 └── LICENSE
 ```
 
-Each project directory contains:
-
-- Source code  
-- Data preprocessing scripts  
-- Model architectures  
-- Training and evaluation pipelines  
-- Generated results and visualizations  
-- Independent documentation  
+Each project directory contains source code, preprocessing scripts, model implementations, and evaluation pipelines.
 
 ---
 
@@ -106,19 +99,19 @@ Each project directory contains:
 
 ### 1️⃣ Basic Flows
 
-Structured-grid CFD systems coupled with graph neural networks.
+Structured-grid CFD examples coupled with graph neural networks.
+
+This project was developed as an introductory step to gain practical understanding of GNNs and how they can be applied to PDE-based problems. It focuses on building intuition around graph construction, training workflows, and model evaluation in a controlled setting.
 
 **Implemented systems:**
 - Lid-driven cavity flow (2D incompressible Navier–Stokes)
 - 2D potential pipe flow (Laplace equation)
 
-**Pipeline:**
-1. Solve PDE using finite difference methods  
-2. Construct graph from structured grid  
-3. Train GNN using PyTorch Geometric  
-4. Compare predicted and numerical fields  
-
-This module provides a controlled environment for evaluating graph-based approximations of PDE solutions.
+**Workflow:**
+1. Solve the PDE using a classical numerical method  
+2. Construct a graph from the structured grid  
+3. Train a GNN using PyTorch Geometric  
+4. Compare predicted and numerical solutions  
 
 📂 `projects/basic_flows/`
 
@@ -126,7 +119,7 @@ This module provides a controlled environment for evaluating graph-based approxi
 
 ### 2️⃣ Airfoil Flow with OpenFOAM + GNN
 
-A full CFD-to-GNN workflow using OpenFOAM simulations on unstructured meshes.
+A full CFD-to-GNN workflow built around OpenFOAM simulations on unstructured meshes.
 
 **Workflow:**
 1. Generate parameterized airfoil cases (OpenFOAM)
@@ -143,7 +136,7 @@ A full CFD-to-GNN workflow using OpenFOAM simulations on unstructured meshes.
 - Global pooling for aerodynamic quantities  
 - Modular training and evaluation scripts  
 
-This project demonstrates surrogate modeling on realistic aerodynamic geometries.
+This project extends the foundational work into more realistic aerodynamic configurations.
 
 📂 `projects/airfoil-gnn-openfoam/`
 
@@ -168,8 +161,6 @@ Across projects, the workflow follows:
    - Relative L2 error
    - Field visualizations
 
-This approach aligns with graph-based surrogate modeling strategies in Scientific Machine Learning.
-
 ---
 
 ## Goals of This Repository
@@ -177,7 +168,7 @@ This approach aligns with graph-based surrogate modeling strategies in Scientifi
 - Develop reproducible CFD–GNN pipelines  
 - Benchmark graph neural networks against classical solvers  
 - Explore data-driven surrogate modeling of fluid systems  
-- Provide a structured research portfolio in Scientific Machine Learning  
+- Build a structured research portfolio in Scientific Machine Learning  
 
 Planned extensions include:
 
